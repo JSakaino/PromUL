@@ -6,7 +6,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <GridView
-        android:id="@+id/gdvTipoCursos"
+        android:id="@+id/gdvTipoPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></GridView>
 

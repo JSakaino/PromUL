@@ -14,6 +14,9 @@ public class GestorTipoPromo {
         //Aca se consulta a la BD
         tipoPromos.add(new TipoPromo("Restaurante","http://www.todoperros.com/wp-content/uploads/2016/08/perro.jpg"));
         tipoPromos.add(new TipoPromo("Viajes","http://www.todoperros.com/wp-content/uploads/2016/08/perro.jpg"));
+        tipoPromos.add(new TipoPromo("Viajes","http://www.todoperros.com/wp-content/uploads/2016/08/perro.jpg"));
+        tipoPromos.add(new TipoPromo("Viajes","http://www.todoperros.com/wp-content/uploads/2016/08/perro.jpg"));
+        tipoPromos.add(new TipoPromo("Viajes","http://www.todoperros.com/wp-content/uploads/2016/08/perro.jpg"));
         return tipoPromos;
     }
 }

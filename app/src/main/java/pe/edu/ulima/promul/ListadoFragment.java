@@ -8,8 +8,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.List;
+
+import pe.edu.ulima.promul.adapters.PromoAdapter;
+import pe.edu.ulima.promul.model.GestorTipoPromo;
+import pe.edu.ulima.promul.model.TipoPromo;
 
 
 public class ListadoFragment extends Fragment {
@@ -35,6 +43,25 @@ public class ListadoFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         //crear adapter
         //instanciar adapter
-        getView().findViewById(R.id.gdvTipoCursos);
+        gdvPromo = (GridView) getView().findViewById(R.id.gdvTipoPromo);
+
+        List<TipoPromo> tipoPromos = new GestorTipoPromo().listarTipoPromos();
+        final PromoAdapter adapter = new PromoAdapter(
+                tipoPromos,
+                getActivity()
+        );
+
+        gdvPromo.setAdapter(adapter);
+
+        gdvPromo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Prueba
+                TipoPromo tipoPromo= (TipoPromo) parent.getItemAtPosition(position);
+                Toast.makeText(getActivity(), "Tipo Promo: " + tipoPromo.getTitulo(), Toast.LENGTH_SHORT).show();
+                //Aca debe dirigirse a nuevo fragment/activity y listar las promociones
+
+            }
+        });
     }
 }
