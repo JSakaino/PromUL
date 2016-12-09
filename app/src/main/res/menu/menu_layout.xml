@@ -4,8 +4,7 @@
         <item
             android:id="@+id/listado"
             android:title="Promociones"/>
-        <item android:title="Uno"/>
-        <item android:title="Uno"/>
-        <item android:title="Uno"/>
+        <item android:title="Hmm"/>
+        <item android:title="Uhh"/>
     </group>
 </menu>

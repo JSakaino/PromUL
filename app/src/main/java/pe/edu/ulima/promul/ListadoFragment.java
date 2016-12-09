@@ -1,23 +1,24 @@
 package pe.edu.ulima.promul;
 
-import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.List;
 
 import pe.edu.ulima.promul.adapters.PromoAdapter;
 import pe.edu.ulima.promul.model.GestorTipoPromo;
-import pe.edu.ulima.promul.model.TipoPromo;
+import pe.edu.ulima.promul.model.beans.TipoPromo;
 
 
 public class ListadoFragment extends Fragment {
@@ -53,13 +54,27 @@ public class ListadoFragment extends Fragment {
 
         gdvPromo.setAdapter(adapter);
 
+        //click en item de tipo
         gdvPromo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Prueba
                 TipoPromo tipoPromo= (TipoPromo) parent.getItemAtPosition(position);
-                Toast.makeText(getActivity(), "Tipo Promo: " + tipoPromo.getTitulo(), Toast.LENGTH_SHORT).show();
-                //Aca debe dirigirse a nuevo fragment/activity y listar las promociones
+                Toast.makeText(getActivity(), "Tipo Promo: " + tipoPromo.getTitulo() + " " + tipoPromo.getIdTipoPromo(), Toast.LENGTH_SHORT).show();
+                //Aca debe dirigirse a nuevo fragment/activity y listar las promociones por tipo
+                //de Promo elegido
+                Fragment frag = new ListadoPromoFragment();
+                //pasar el parametro escogido
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", (int) tipoPromo.getIdTipoPromo());
+                Log.i("LEEEEE", String.valueOf(tipoPromo.getIdTipoPromo()));
+                frag.setArguments(bundle);
+                //blabla
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = manager.beginTransaction();
+                ft.replace(R.id.fraContenido,frag);
+                ft.addToBackStack(null);
+                ft.commit();
 
             }
         });

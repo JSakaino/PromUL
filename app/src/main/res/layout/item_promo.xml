@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
     <ImageView
-        android:id="@+id/iviTipoPromo"
-        android:layout_width="wrap_content"
+        android:id="@+id/iviImagenPromo"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@android:drawable/btn_star"/>
-    <TextView
-        android:id="@+id/tviTituloPromo"
-        android:textSize="15pt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/iviTipoPromo"
-        android:layout_centerHorizontal="true"
-        android:text="Promo"
+        android:layout_weight="1"
+        android:src="@android:drawable/star_on"
         />
-</RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tviTituloPromo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hola"
+            />
+
+        <TextView
+            android:id="@+id/tviDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mundo"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

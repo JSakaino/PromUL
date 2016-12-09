@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import pe.edu.ulima.promul.R;
-import pe.edu.ulima.promul.model.TipoPromo;
+import pe.edu.ulima.promul.model.beans.TipoPromo;
 
 /**
  * Created by sodm on 11/28/2016.
@@ -49,7 +49,7 @@ public class PromoAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null){
-            convertView = mInflater.inflate(R.layout.item_promo,parent,false);
+            convertView = mInflater.inflate(R.layout.item_tipo_promo,parent,false);
             viewHolder = new ViewHolder();
             viewHolder.tviTituloPromo = (TextView) convertView.findViewById(R.id.tviTituloPromo);
             viewHolder.iviTipoPromo = (ImageView) convertView.findViewById(R.id.iviTipoPromo);
